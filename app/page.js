@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { auth, githubProvider } from "./firebase";
+import { auth, githubProvider } from "./lib/firebase";
 import { signInWithPopup } from "firebase/auth";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       console.log(error);
       alert("Login failed — check console.");
     }
-  }
+  };
 
   return (
     <main style={{ display:"flex", flexDirection:"column", alignItems:"center", marginTop:"50px" }}>
@@ -32,3 +32,6 @@ export default function Home() {
     </main>
   );
 }
+
+// ⬇ Add this — prevents Vercel prerendering & fixes your deploy error
+export const dynamic = "force-dynamic";
