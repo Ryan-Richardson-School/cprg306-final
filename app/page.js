@@ -1,8 +1,11 @@
-import { Main } from "next/document";
-import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-export default function Home() {
+export default function Page() {
   return (
-    <Main>hello world</Main>
+    <main>
+      <p>RAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</p>
+      <Link href="/Search">Go to Search</Link>
+    </main>
   )
 }
