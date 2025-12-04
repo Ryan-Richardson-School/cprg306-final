@@ -1,37 +1,12 @@
-"use client";
+import Login from "./components/login";
 
-import { auth, githubProvider } from "./lib/firebase";
-import { signInWithPopup } from "firebase/auth";
+export const dynamic = "force-dynamic";  // required to stop SSR for Firebase auth
 
 export default function Home() {
-
-  const loginWithGithub = async () => {
-    try {
-      await signInWithPopup(auth, githubProvider);
-      alert("Logged in with GitHub!");
-    } catch (error) {
-      console.log(error);
-      alert("Login failed — check console.");
-    }
-  };
-
   return (
     <main style={{ display:"flex", flexDirection:"column", alignItems:"center", marginTop:"50px" }}>
       <h1>Welcome — Sign in Below</h1>
-      <button onClick={loginWithGithub} 
-        style={{
-          padding:"12px 24px",
-          marginTop:"20px",
-          cursor:"pointer",
-          background:"#333",
-          color:"#fff",
-          borderRadius:"6px"
-        }}>
-        Login with GitHub
-      </button>
+      <Login />  {/* Firebase login now loads ONLY on the client (safe for deploy) */}
     </main>
   );
 }
-
-// ⬇ Add this — prevents Vercel prerendering & fixes your deploy error
-export const dynamic = "force-dynamic";
