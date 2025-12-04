@@ -1,21 +1,18 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { signInWithPopup } from "firebase/auth";
-import { auth, githubProvider } from "./lib/firebase";
+import { initializeApp } from "firebase/app";
+import { getAuth, GithubAuthProvider } from "firebase/auth";
 
-export default function HomePage() {
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+};
 
-  const loginWithGithub = async () => {
-    await signInWithPopup(auth, githubProvider)
-      .then(() => console.log("Logged in"))
-      .catch((e) => console.error(e));
-  };
+const app = initializeApp(firebaseConfig);
 
-  return (
-    <main>
-      <h1>Login</h1>
-      <button onClick={loginWithGithub}>Sign in with GitHub</button>
-    </main>
-  );
-}
+export const auth = getAuth(app);
+export const githubProvider = new GithubAuthProvider()
