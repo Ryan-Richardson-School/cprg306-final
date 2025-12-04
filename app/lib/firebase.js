@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { signInWithPopup } from "firebase/auth";
-import { auth, githubProvider } from "@/lib/firebase";
+import { auth, githubProvider } from "./lib/firebase";
 
 export default function HomePage() {
 
