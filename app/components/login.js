@@ -2,29 +2,34 @@
 
 import { auth, githubProvider } from "../lib/firebase";
 import { signInWithPopup } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
+  const router = useRouter();
 
   const loginWithGithub = async () => {
     try {
       await signInWithPopup(auth, githubProvider);
-      console.log("Logged in!");
+      router.push("/dashboard");
+
     } catch (error) {
       console.error(error);
-      alert("Login failed — check console");
+      alert("Login failed — check console.");
     }
   };
 
   return (
-    <button 
+    <button
       onClick={loginWithGithub}
       style={{
         padding: "12px 24px",
-        background: "#000",
+        marginTop: "20px",
+        cursor: "pointer",
+        background: "#333",
         color: "#fff",
         borderRadius: "6px",
-        cursor: "pointer"
-      }}>
+      }}
+    >
       Login with GitHub
     </button>
   );
