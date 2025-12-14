@@ -17,7 +17,7 @@ export default function Dashboard() {
   return (
     <main style={{ padding: "40px" }}>
       <div className="flex mt-4 text-[50px]">
-          <Link href="/search" className="flex border-2 rounded-md w-50 h-15 m-auto items-center justify-center rainbow-text fixed top-4 right-4">Go To Search</Link>
+          <Link href="/Search" className="flex border-2 rounded-md w-50 h-15 m-auto items-center justify-center rainbow-text fixed top-4 right-4">Go To Search</Link>
         </div>
       <div className="text-center items-center justify-center rainbow-text text-[50px]">
         <h1 className="rainbow-text text-[70px] underline decoration-white">NCR Movie Watchlist</h1> 
