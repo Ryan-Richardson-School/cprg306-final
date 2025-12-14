@@ -11,7 +11,7 @@ export default function ResultsClient() {
     <main className="p-10">
       <div className="flex mt-4 text-[50px]">
         <Link
-          href="/search"
+          href="/Search"
           className="flex border-2 rounded-md w-50 h-15 m-auto items-center justify-center rainbow-text fixed top-4 right-4"
         >
           Go To Search
