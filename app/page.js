@@ -1,12 +1,21 @@
 import Login from "./components/login";
 
-export const dynamic = "force-dynamic";  // required to stop SSR for Firebase auth
+export const dynamic = "force-dynamic";
 
 export default function Page() {
   return (
-    <main style={{ display:"flex", flexDirection:"column", alignItems:"center", marginTop:"50px" }}>
-      <h1>Welcome — Sign in Below</h1>
-      <Login />  {/* Firebase login now loads ONLY on the client (safe for deploy) */}
+    <main className="h-screen flex flex-col items-center justify-center gap-10">
+
+      <h1 className="rainbow-text text-[70px] underline decoration-white text-center">
+        NCR Movie Watchlist
+      </h1>
+
+      <p className="rainbow-text text-[40px] text-center">
+        Sign in to continue
+      </p>
+
+      <Login />
+
     </main>
   );
 }
