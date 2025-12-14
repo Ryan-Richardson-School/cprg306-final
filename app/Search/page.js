@@ -23,16 +23,12 @@ export default function Search() {
                     </div>
                 </div>
                 
-                <div>
-                    <p className="rainbow-text text-[40px]">THIS IS THE SICK ASS SEARCH BAR (Sharknado Only.)</p>
+                <div className="text-[75px] content-center justify-center flex flex-col items-center">
+                    <p className="rainbow-text">THIS IS THE SICK ASS SEARCH BAR (Sharknado Only.)</p>
                     <div className="mt-5 text-center flex gap-3">
-                        <input type="text" placeholder="Enter Movie Title..." value={query} onChange={(e) => setQuery(e.target.value)} className="border-2 rounded-md pl-2 w-64 rainbow-text text-[30px]"></input>
-                        <button onClick={handleSearch} className="border-2 rounded-md pl-2 pr-2 text-center w-24 rainbow-text text-[30px] cursor-pointer">Search</button>
+                        <input type="text" placeholder="Enter Movie Title..." value={query} onChange={(e) => setQuery(e.target.value)} className="border-2 rounded-md pl-2 w-150 rainbow-text"></input>
+                        <button onClick={handleSearch} className="border-2 rounded-md pl-2 pr-2 text-center w-75 rainbow-text cursor-pointer">Search</button>
                     </div>
-                </div>
-
-            <div className="fixed top-4 right-4 w-25 h-25 rounded-full bg-white flex content-center justify-center">
-                    <img src="assets/user.png" alt="Profile" className="w-15 h-20 pt-4"></img>
                 </div>
             </div>
         </main>
