@@ -49,7 +49,6 @@ export default function Results() {
   return (
     <main className="p-10">
 
-      {/* Back to Search */}
       <div className="fixed top-4 right-4">
         <Link
           href="/Search"
@@ -59,16 +58,13 @@ export default function Results() {
         </Link>
       </div>
 
-      {/* Title */}
       <h1 className="rainbow-text text-[60px] underline decoration-white mb-6">
         Results for: {movie}
       </h1>
 
-      {/* States */}
       {loading && <p className="rainbow-text text-[30px]">Loading...</p>}
       {error && <p className="text-red-400 text-[30px]">{error}</p>}
 
-      {/* Results */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
         {results.map((film) => (
           <div
