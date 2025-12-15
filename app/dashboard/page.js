@@ -4,6 +4,7 @@ import Link from "next/link";
 import { auth } from "../lib/firebase";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import Image from "next/image";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -15,19 +16,25 @@ export default function Dashboard() {
   }, [router]);
 
   return (
-    <main style={{ padding: "40px" }}>
-      
+    <main className="relative min-h-screen" style={{ padding: "40px" }}>
+      <Image
+        src="/Assets/Elmo.jpg"
+        alt="Background"
+        fill
+        priority
+        className="object-cover -z-10 opacity-30"
+      />
       <div className="flex gap-4 fixed top-4 right-4">
         <Link
           href="/Search"
-          className="flex border-2 rounded-md px-6 py-3 items-center justify-center rainbow-text"
+          className="flex border-2 rounded-md px-6 py-3 items-center justify-center rainbow-text text-[40px] w-40"
         >
-          Go To Search
+          Search
         </Link>
 
         <Link
           href="/account"
-          className="flex border-2 rounded-md px-6 py-3 items-center justify-center rainbow-text"
+          className="flex border-2 rounded-md px-6 py-3 items-center justify-center rainbow-text text-[40px] w-40"
         >
           Account
         </Link>

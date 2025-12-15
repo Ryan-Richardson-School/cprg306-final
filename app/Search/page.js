@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 
 export default function Search() {
@@ -17,8 +18,15 @@ export default function Search() {
 
     return (    
         <main>
+            <Image
+                src="/Assets/Elmo.jpg"
+                alt="Background"
+                fill
+                priority
+                className="object-cover -z-10 opacity-30"
+            />
             <div className="flex mt-4 text-[50px]">
-                <Link href="/dashboard" className="flex border-2 rounded-md w-50 h-15 m-auto items-center justify-center rainbow-text fixed top-4 right-4">Go To Dashboard</Link>
+                <Link href="/dashboard" className="flex border-2 rounded-md w-40 h-15 m-auto items-center justify-center rainbow-text fixed top-4 right-4">Dashboard</Link>
             </div>
             <div className="flex-col flex h-screen justify-center items-center">
                 <div className="flex fixed top-7 text-white w-70 text-2xl justify-center items-center mb-15">
