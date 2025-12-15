@@ -10,6 +10,15 @@ html {
   background-attachment: fixed;
 }
 
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: -1;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

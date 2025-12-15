@@ -138,7 +138,7 @@ export default function Dashboard() {
                 ) : (
                   <button
                     onClick={() => markAsWatched(movie.id)}
-                    className="border-2 px-4 py-2 rounded-md rainbow-text hover:bg-green-500 hover:text-white transition"
+                    className="border-2 px-4 py-2 rounded-md rainbow-text hover:bg-green-500 hover:text-white transition text-[30px]"
                   >
                     Mark as Watched
                   </button>
@@ -146,7 +146,7 @@ export default function Dashboard() {
               </div>
               <button
                 onClick={() => removeFromWatchlist(movie.id)}
-                className="border-2 px-4 py-2 rounded-md rainbow-text hover:bg-red-500 hover:text-white transition"
+                className="border-2 px-4 py-2 rounded-md rainbow-text hover:bg-red-500 hover:text-white transition text-[30px]"
               >
                 Remove
               </button>
