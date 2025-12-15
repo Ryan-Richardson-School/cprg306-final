@@ -35,7 +35,7 @@ export default function AccountPage() {
               fill
               priority
               className="object-cover -z-10 opacity-30"
-            />
+      />
       <div className="fixed top-4 right-4 flex gap-4 text-[40px]">
         <Link
           href="/dashboard"

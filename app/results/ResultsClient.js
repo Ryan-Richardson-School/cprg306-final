@@ -70,9 +70,12 @@ export default function ResultsClient() {
   return (
     <main className="p-10">
 
-      <div className="fixed top-4 right-4">
+      <div className="fixed top-4 right-4 text-[40px]">
         <Link href="/Search" className="border-2 rounded-md px-6 py-3 rainbow-text">
           Go To Search
+        </Link>
+        <Link href="/dashboard" className="border-2 rounded-md px-6 py-3 rainbow-text ml-4">
+          Go To Dashboard
         </Link>
       </div>
 
