@@ -125,7 +125,7 @@ export default function Dashboard() {
                 />
               )}
 
-              <p className="rainbow-text text-[20px]">
+              <p className="rainbow-text text-[40px]">
                 {movie.title}
               </p>
 
