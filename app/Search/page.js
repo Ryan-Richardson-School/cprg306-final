@@ -29,7 +29,7 @@ export default function Search() {
                 </div>
                 
                 <div className="text-[75px] content-center justify-center flex flex-col items-center">
-                    <p className="rainbow-text">THIS IS THE SICK ASS SEARCH BAR (Sharknado Only.)</p>
+                    <p className="rainbow-text">THIS IS THE SICK ASS SEARCH BAR</p>
                     <div className="mt-5 text-center flex gap-3">
                         <input type="text" placeholder="Enter Movie Title..." value={query} onChange={(e) => setQuery(e.target.value)} className="border-2 rounded-md pl-2 w-150 rainbow-text"></input>
                         <button onClick={handleSearch} className="border-2 rounded-md pl-2 pr-2 text-center w-75 rainbow-text cursor-pointer">Search</button>
