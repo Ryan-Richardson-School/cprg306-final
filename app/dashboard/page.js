@@ -13,7 +13,6 @@ export default function Dashboard() {
   const [watchlist, setWatchlist] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 🔒 Redirect if not logged in
   useEffect(() => {
     if (!auth.currentUser) {
       router.push("/");
@@ -41,24 +40,28 @@ export default function Dashboard() {
   return (
     <main style={{ padding: "40px" }}>
 
-      {/* Go To Search */}
-      <div className="flex mt-4 text-[50px]">
+      <div className="fixed top-4 right-4 flex gap-4">
         <Link
           href="/Search"
-          className="flex border-2 rounded-md w-50 h-15 m-auto items-center justify-center rainbow-text fixed top-4 right-4"
+          className="flex border-2 rounded-md px-6 py-3 items-center justify-center rainbow-text"
         >
           Go To Search
         </Link>
+
+        <Link
+          href="/account"
+          className="flex border-2 rounded-md px-6 py-3 items-center justify-center rainbow-text"
+        >
+          Account
+        </Link>
       </div>
 
-      {/* Title */}
       <div className="text-center items-center justify-center rainbow-text text-[50px]">
         <h1 className="rainbow-text text-[70px] underline decoration-white">
           NCR Movie Watchlist
         </h1>
       </div>
 
-      {/* Watchlist */}
       <div className="mt-12">
         <p className="rainbow-text text-[50px] mb-6 text-center">
           Current Watchlist
