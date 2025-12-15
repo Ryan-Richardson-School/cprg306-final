@@ -10,8 +10,10 @@ export default function Login() {
   const loginWithGithub = async () => {
     try {
       await signInWithPopup(auth, githubProvider);
-      router.push("/dashboard");
 
+      localStorage.setItem("playBackgroundMusic", "true");
+
+      router.push("/dashboard");
     } catch (error) {
       console.error(error);
       alert("Login failed — check console.");

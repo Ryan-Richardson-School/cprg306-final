@@ -4,7 +4,7 @@ import Link from "next/link";
 import { auth, db } from "../lib/firebase";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import Image from "next/image";
 
 const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
@@ -49,6 +49,24 @@ export default function Dashboard() {
       );
     } catch (error) {
       console.error("Failed to remove movie", error);
+    }
+  };
+
+  const markAsWatched = async (movieId) => {
+    try {
+      await updateDoc(
+        doc(db, "users", auth.currentUser.uid, "watchlist", movieId.toString()),
+        { watched: true },
+        { merge: true }
+      );
+      
+      setWatchlist(prev =>
+        prev.map(movie =>
+          movie.id === movieId ? { ...movie, watched: true } : movie
+        )
+      );
+    } catch (error) {
+      console.error("Failed to mark movie as watched", error);
     }
   };
 
@@ -114,14 +132,24 @@ export default function Dashboard() {
               <p className="text-gray-400 mb-3">
                 {movie.releaseDate?.split("-")[0]}
               </p>
-              <div className="flex justify-center text-center items-center">
-                <button
-                  onClick={() => removeFromWatchlist(movie.id)}
-                  className="border-2 px-4 py-2 rounded-md rainbow-text w-25 h-10 text-[40px] hover:bg-red-500 hover:text-white transition cursor-pointer flex items-center justify-center"
-                >
-                  Remove
-                </button>
+              <div className="mb-3">
+                {movie.watched ? (
+                  <span className="text-green-500 font-bold">Watched</span>
+                ) : (
+                  <button
+                    onClick={() => markAsWatched(movie.id)}
+                    className="border-2 px-4 py-2 rounded-md rainbow-text hover:bg-green-500 hover:text-white transition"
+                  >
+                    Mark as Watched
+                  </button>
+                )}
               </div>
+              <button
+                onClick={() => removeFromWatchlist(movie.id)}
+                className="border-2 px-4 py-2 rounded-md rainbow-text hover:bg-red-500 hover:text-white transition"
+              >
+                Remove
+              </button>
             </div>
           ))}
         </div>

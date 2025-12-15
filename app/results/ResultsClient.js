@@ -61,6 +61,7 @@ export default function ResultsClient() {
         poster: movie.poster_path,
         releaseDate: movie.release_date,
         addedAt: new Date(),
+        watched: false,
       }
     );
 
