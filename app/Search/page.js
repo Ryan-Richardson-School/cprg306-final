@@ -18,13 +18,6 @@ export default function Search() {
 
     return (    
         <main>
-            <Image
-                src="/Assets/Elmo.jpg"
-                alt="Background"
-                fill
-                priority
-                className="object-cover -z-10 opacity-30"
-            />
             <div className="flex mt-4 text-[50px]">
                 <Link href="/dashboard" className="flex border-2 rounded-md w-40 h-15 m-auto items-center justify-center rainbow-text fixed top-4 right-4">Dashboard</Link>
             </div>

@@ -54,14 +54,6 @@ export default function Dashboard() {
 
   return (
     <main style={{ padding: "40px" }}>
-      <Image
-        src="/Assets/Elmo.jpg"
-        alt="Background"
-        fill
-        priority
-        className="object-cover -z-10 opacity-30"
-      />
-
       <div className="fixed top-4 right-4 flex gap-4 text-[40px]">
         <Link
           href="/Search"

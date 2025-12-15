@@ -29,13 +29,6 @@ export default function AccountPage() {
 
   return (
     <main className="p-10 flex flex-col items-center gap-6">
-      <Image
-              src="/Assets/Elmo.jpg"
-              alt="Background"
-              fill
-              priority
-              className="object-cover -z-10 opacity-30"
-      />
       <div className="fixed top-4 right-4 flex gap-4 text-[40px]">
         <Link
           href="/dashboard"
