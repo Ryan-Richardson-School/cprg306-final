@@ -32,7 +32,6 @@ export default function BackgroundAudio({ play }) {
         preload="auto"
       />
 
-      {/* 🔊 Audio Unlock Button */}
       {play && (
         <button
           onClick={startAudio}
@@ -49,7 +48,7 @@ export default function BackgroundAudio({ play }) {
             zIndex: 9999,
           }}
         >
-          🔊 Enable Sound
+          🔥🔥🔥 Enable Sound 🔥🔥🔥
         </button>
       )}
     </>
