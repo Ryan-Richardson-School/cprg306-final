@@ -11,7 +11,6 @@ const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
 export default function ResultsClient() {
   const searchParams = useSearchParams();
   const movieQuery = searchParams.get("movie");
-
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
