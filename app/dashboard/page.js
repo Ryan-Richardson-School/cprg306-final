@@ -122,13 +122,14 @@ export default function Dashboard() {
               <p className="text-gray-400 mb-3">
                 {movie.releaseDate?.split("-")[0]}
               </p>
-
-              <button
-                onClick={() => removeFromWatchlist(movie.id)}
-                className="border-2 px-4 py-2 rounded-md rainbow-text hover:bg-red-500 hover:text-white transition"
-              >
-                Remove
-              </button>
+              <div className="flex justify-center text-center items-center">
+                <button
+                  onClick={() => removeFromWatchlist(movie.id)}
+                  className="border-2 px-4 py-2 rounded-md rainbow-text w-25 h-10 text-[40px] hover:bg-red-500 hover:text-white transition cursor-pointer flex items-center justify-center"
+                >
+                  Remove
+                </button>
+              </div>
             </div>
           ))}
         </div>
