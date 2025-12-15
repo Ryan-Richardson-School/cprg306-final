@@ -4,7 +4,7 @@ import Link from "next/link";
 import { auth, db } from "../lib/firebase";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import Image from "next/image";
 
 const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
@@ -38,16 +38,34 @@ export default function Dashboard() {
     fetchWatchlist();
   }, [router]);
 
+  // ❌ REMOVE MOVIE FROM WATCHLIST
+  const removeFromWatchlist = async (movieId) => {
+    try {
+      await deleteDoc(
+        doc(db, "users", auth.currentUser.uid, "watchlist", movieId.toString())
+      );
+
+      // Instantly update UI
+      setWatchlist(prev =>
+        prev.filter(movie => movie.id !== movieId)
+      );
+    } catch (error) {
+      console.error("Failed to remove movie", error);
+    }
+  };
+
   return (
     <main style={{ padding: "40px" }}>
-        <Image
-          src="/Assets/Elmo.jpg"
-          alt="Background"
-          fill
-          priority
-          className="object-cover -z-10 opacity-30"
-        />
+      {/* Background */}
+      <Image
+        src="/Assets/Elmo.jpg"
+        alt="Background"
+        fill
+        priority
+        className="object-cover -z-10 opacity-30"
+      />
 
+      {/* Top Navigation */}
       <div className="fixed top-4 right-4 flex gap-4 text-[40px]">
         <Link
           href="/Search"
@@ -64,12 +82,14 @@ export default function Dashboard() {
         </Link>
       </div>
 
+      {/* Title */}
       <div className="text-center items-center justify-center rainbow-text text-[50px]">
         <h1 className="rainbow-text text-[70px] underline decoration-white">
           NCR Movie Watchlist
         </h1>
       </div>
 
+      {/* Watchlist */}
       <div className="mt-12">
         <p className="rainbow-text text-[50px] mb-6 text-center">
           Current Watchlist
@@ -105,14 +125,21 @@ export default function Dashboard() {
                 {movie.title}
               </p>
 
-              <p className="text-gray-400">
+              <p className="text-gray-400 mb-3">
                 {movie.releaseDate?.split("-")[0]}
               </p>
+
+              {/* REMOVE BUTTON */}
+              <button
+                onClick={() => removeFromWatchlist(movie.id)}
+                className="border-2 px-4 py-2 rounded-md rainbow-text hover:bg-red-500 hover:text-white transition"
+              >
+                Remove
+              </button>
             </div>
           ))}
         </div>
       </div>
-
     </main>
   );
 }
