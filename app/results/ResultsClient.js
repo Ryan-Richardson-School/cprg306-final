@@ -107,7 +107,7 @@ export default function ResultsClient() {
 
             <button
               onClick={() => addToWatchlist(movie)}
-              className="border-2 rounded-md px-4 py-1 rainbow-text"
+              className="border-2 rounded-md px-4 py-1 rainbow-text cursor-pointer"
             >
               Add to Watchlist
             </button>
